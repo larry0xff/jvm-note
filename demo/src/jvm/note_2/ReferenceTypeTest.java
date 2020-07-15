@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
  * <p>
  *
  * @author 谢仲东
- * @since 2020/7/14 16:35
+ * @since 2020/7/14 19:35
  */
 public class ReferenceTypeTest {
 
@@ -18,6 +18,9 @@ public class ReferenceTypeTest {
         weakReference();
     }
 
+    /**
+     * 强引用
+     */
     public static void strongReference() {
         String str = new String("hello");
         System.out.println(str);
@@ -25,15 +28,21 @@ public class ReferenceTypeTest {
         System.out.println(str);
     }
 
+    /**
+     * 软引用
+     */
     public static void softReference() {
-        SoftReference<String> str = new SoftReference<>("hello1");
+        SoftReference<String> str = new SoftReference<>(new String("hello1"));
         System.out.println(str.get());
         System.gc();
         System.out.println(str.get());
     }
 
+    /**
+     * 弱引用
+     */
     public static void weakReference() {
-        WeakReference<String> str = new WeakReference<>("hello2");
+        WeakReference<String> str = new WeakReference<>(new String("hello2"));
         System.out.println(str.get());
         System.gc();
         System.out.println(str.get());
